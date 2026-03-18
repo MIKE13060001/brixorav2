@@ -185,6 +185,60 @@
             </div>
         );
 
+        const projectsData = [
+            { 
+                id: 0,
+                title: 'Villa Mika - Marseillaise', 
+                subtitle: 'Une somptueuse villa moderne bâtie pour répondre aux attentes les plus exigeantes sous le soleil de Marseille.',
+                loc: 'Marseille, FR', 
+                weeks: '14 semaines', 
+                sqft: '276 m²', 
+                img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=600',
+                intro1: "La Villa Mika - Marseillaise a été imaginée comme une résidence contemporaine d'exception, offrant un cadre de vie luxueux au bord de la Méditerranée. Joseph Construction a été choisi pour réaliser ce projet ambitieux, alliant élégance, confort absolu et respect de l'environnement architectural local.",
+                intro2: "Malgré les contraintes du terrain et les exigences techniques élevées, notre équipe a livré avec succès une demeure moderne qui redéfinit l'art de vivre dans le sud de la France, le tout dans des délais maîtrisés.",
+                outcomes: "Nous avons abordé ce projet avec des techniques de construction innovantes et une gestion rigoureuse, garantissant une efficacité optimale pour tenir le délai de 14 semaines. La conception intègre des façades éco-performantes, des terrasses panoramiques et des espaces de vie ouverts, parfaits pour profiter du climat méditerranéen.",
+                gallery: [
+                    'https://images.unsplash.com/photo-1503387762-592dea58ef23?auto=format&fit=crop&q=80&w=600',
+                    'https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=600',
+                    'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=600'
+                ]
+            },
+            { 
+                id: 1,
+                title: 'Villa Maria - Ollioules', 
+                subtitle: 'Un havre de paix contemporain niché dans les collines d\'Ollioules, alliant charme provençal et design épuré.',
+                loc: 'Ollioules, FR', 
+                weeks: '9 semaines', 
+                sqft: '164 m²', 
+                img: 'https://images.unsplash.com/photo-1449156001437-3a1661dc926b?auto=format&fit=crop&q=80&w=600',
+                intro1: "La Villa Maria, située à Ollioules, représente l'harmonie parfaite entre la rénovation moderne et l'esprit authentique du Var. Notre objectif principal était de créer un espace de vie lumineux et fonctionnel, tout en valorisant les matériaux nobles et la vue imprenable sur les environs.",
+                intro2: "En étroite collaboration avec notre client, nous avons surmonté les défis liés à la topographie pour construire une résidence élégante, chaleureuse et parfaitement intégrée à son environnement naturel.",
+                outcomes: "Grâce à une planification minutieuse, le chantier a été achevé en seulement 9 semaines. Le résultat est une habitation optimisée de 164 m², dotée d'infrastructures modernes, d'une isolation de pointe et de finitions soignées qui mettent en valeur le savoir-faire de nos artisans.",
+                gallery: [
+                    'https://images.unsplash.com/photo-1503387762-592dea58ef23?auto=format&fit=crop&q=80&w=600',
+                    'https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=600',
+                    'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=600'
+                ]
+            },
+            { 
+                id: 2,
+                title: 'Villa Sofia - Cannoise', 
+                subtitle: 'Le summum du luxe et du raffinement sur la Côte d\'Azur, pensée pour un confort incomparable et des réceptions grandioses.',
+                loc: 'Cannes, FR', 
+                weeks: '17 semaines', 
+                sqft: '318 m²', 
+                img: './sofia_profile.jpg',
+                intro1: "La Villa Sofia a été conçue comme une véritable pièce d'architecture de prestige au cœur de Cannes. L'exigence était de bâtir une résidence haut de gamme alliant volumes spectaculaires, domotique de dernière génération et espaces récréatifs exclusifs.",
+                intro2: "Ce projet de grande envergure a nécessité une coordination experte et l'utilisation de matériaux premium. Notre équipe s'est investie sans compter pour concrétiser cette vision luxueuse, dépassant les attentes initiales en matière de qualité et d'esthétisme.",
+                outcomes: "Livrée en 17 semaines, cette réalisation remarquable de 318 m² témoigne de notre capacité à gérer des chantiers complexes. L'intégration harmonieuse des piscines, des vastes baies vitrées et des aménagements extérieurs sur-mesure illustre parfaitement notre expertise dans la construction de résidences d'exception.",
+                gallery: [
+                    './sofia_gallery_1.jpg',
+                    './sofia_gallery_2.jpg',
+                    './sofia_gallery_3.jpg'
+                ]
+            }
+        ];
+
         const servicesData = [
             {
                 title: 'Maçonnerie de gros œuvre',
@@ -253,10 +307,10 @@
             </div>
         );
 
-        const ProjectDetail = ({ project, onBack, onNavigate }) => (
+        const ProjectDetail = ({ project, onBack, onNavigate, onNext, onPrev }) => (
             <div className="bg-white min-h-screen">
                 <Navbar onNavigate={onNavigate} />
-                <div className="max-w-7xl mx-auto px-12 py-16 text-center">
+                <div className="max-w-7xl mx-auto px-12 py-16 text-center text-navy">
                     <h1 className="text-6xl font-bold mb-6 tracking-tight">{project.title}</h1>
                     <p className="text-gray-500 max-w-2xl mx-auto text-sm leading-relaxed">
                         {project.subtitle}
@@ -275,7 +329,7 @@
                             <li className="flex items-center text-gray-600 text-sm border-b border-gray-200 pb-4"><i className="fas fa-expand-arrows-alt mr-4 text-gray-400"></i> {project.sqft}</li>
                             <li className="flex items-center text-gray-600 text-sm pb-4"><i className="far fa-heart mr-4 text-gray-400"></i> Construction pour un particulier</li>
                         </ul>
-                        <button className="w-full bg-navy text-white py-4 rounded-full text-sm font-bold mt-8 flex items-center justify-center"><span className="mr-2 w-1.5 h-1.5 bg-white rounded-full"></span>Démarrer votre projet</button>
+                        <button className="w-full bg-navy text-white py-4 rounded-full text-sm font-bold mt-8 flex items-center justify-center transition hover:opacity-95"><span className="mr-2 w-1.5 h-1.5 bg-white rounded-full"></span>Démarrer votre projet</button>
                     </div>
                     <div className="lg:col-span-2">
                         <h2 className="text-4xl font-bold mb-8">Introduction & Explication</h2>
@@ -290,13 +344,15 @@
                     </div>
                 </div>
                 <div className="max-w-7xl mx-auto px-12 grid grid-cols-3 gap-6 mb-16">
-                    <img src="https://images.unsplash.com/photo-1503387762-592dea58ef23?auto=format&fit=crop&q=80&w=600" className="w-full h-80 object-cover rounded-3xl" />
-                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=600" className="w-full h-80 object-cover rounded-3xl" />
-                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=600" className="w-full h-80 object-cover rounded-3xl" />
+                    {project.gallery.map((img, i) => (
+                        <div key={i} className="overflow-hidden rounded-3xl h-80">
+                            <img src={img} className="w-full h-full object-cover transition-transform duration-500 hover:scale-110 cursor-pointer" />
+                        </div>
+                    ))}
                 </div>
                 <div className="max-w-7xl mx-auto px-12 flex justify-between items-center py-12 border-t border-gray-100">
-                    <button onClick={onBack} className="flex items-center text-sm font-bold group"><div className="w-8 h-8 rounded-full bg-navy text-white flex items-center justify-center mr-3 group-hover:bg-blue-600 transition-colors"><i className="fas fa-arrow-left text-[10px]"></i></div>Précédent</button>
-                    <button className="flex items-center text-sm font-bold group">Suivant<div className="w-8 h-8 rounded-full bg-navy text-white flex items-center justify-center ml-3 group-hover:bg-blue-600 transition-colors"><i className="fas fa-arrow-right text-[10px]"></i></div></button>
+                    <button onClick={onPrev} className="flex items-center text-sm font-bold group text-navy"><div className="w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center mr-3 group-hover:bg-blue-600 transition-colors"><i className="fas fa-arrow-left text-[10px]"></i></div>Précédent</button>
+                    <button onClick={onNext} className="flex items-center text-sm font-bold group text-navy">Suivant<div className="w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center ml-3 group-hover:bg-blue-600 transition-colors"><i className="fas fa-arrow-right text-[10px]"></i></div></button>
                 </div>
                 <Footer />
             </div>
@@ -383,41 +439,7 @@
                     <a href="#" className="text-sm font-semibold hover:underline">Voir toutes nos réalisations →</a>
                 </div>
                 <div className="max-w-7xl mx-auto px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
-                    {[
-                        { 
-                            title: 'Villa Mika - Marseillaise', 
-                            subtitle: 'Une somptueuse villa moderne bâtie pour répondre aux attentes les plus exigeantes sous le soleil de Marseille.',
-                            loc: 'Marseille, FR', 
-                            weeks: '14 semaines', 
-                            sqft: '276 m²', 
-                            img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=600',
-                            intro1: "La Villa Mika - Marseillaise a été imaginée comme une résidence contemporaine d'exception, offrant un cadre de vie luxueux au bord de la Méditerranée. Joseph Construction a été choisi pour réaliser ce projet ambitieux, alliant élégance, confort absolu et respect de l'environnement architectural local.",
-                            intro2: "Malgré les contraintes du terrain et les exigences techniques élevées, notre équipe a livré avec succès une demeure moderne qui redéfinit l'art de vivre dans le sud de la France, le tout dans des délais maîtrisés.",
-                            outcomes: "Nous avons abordé ce projet avec des techniques de construction innovantes et une gestion rigoureuse, garantissant une efficacité optimale pour tenir le délai de 14 semaines. La conception intègre des façades éco-performantes, des terrasses panoramiques et des espaces de vie ouverts, parfaits pour profiter du climat méditerranéen."
-                        },
-                        { 
-                            title: 'Villa Maria - Ollioules', 
-                            subtitle: 'Un havre de paix contemporain niché dans les collines d\'Ollioules, alliant charme provençal et design épuré.',
-                            loc: 'Ollioules, FR', 
-                            weeks: '9 semaines', 
-                            sqft: '164 m²', 
-                            img: 'https://images.unsplash.com/photo-1449156001437-3a1661dc926b?auto=format&fit=crop&q=80&w=600',
-                            intro1: "La Villa Maria, située à Ollioules, représente l'harmonie parfaite entre la rénovation moderne et l'esprit authentique du Var. Notre objectif principal était de créer un espace de vie lumineux et fonctionnel, tout en valorisant les matériaux nobles et la vue imprenable sur les environs.",
-                            intro2: "En étroite collaboration avec notre client, nous avons surmonté les défis liés à la topographie pour construire une résidence élégante, chaleureuse et parfaitement intégrée à son environnement naturel.",
-                            outcomes: "Grâce à une planification minutieuse, le chantier a été achevé en seulement 9 semaines. Le résultat est une habitation optimisée de 164 m², dotée d'infrastructures modernes, d'une isolation de pointe et de finitions soignées qui mettent en valeur le savoir-faire de nos artisans."
-                        },
-                        { 
-                            title: 'Villa Sofia - Cannoise', 
-                            subtitle: 'Le summum du luxe et du raffinement sur la Côte d\'Azur, pensée pour un confort incomparable et des réceptions grandioses.',
-                            loc: 'Cannes, FR', 
-                            weeks: '17 semaines', 
-                            sqft: '318 m²', 
-                            img: 'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=600',
-                            intro1: "La Villa Sofia a été conçue comme une véritable pièce d'architecture de prestige au cœur de Cannes. L'exigence était de bâtir une résidence haut de gamme alliant volumes spectaculaires, domotique de dernière génération et espaces récréatifs exclusifs.",
-                            intro2: "Ce projet de grande envergure a nécessité une coordination experte et l'utilisation de matériaux premium. Notre équipe s'est investie sans compter pour concrétiser cette vision luxueuse, dépassant les attentes initiales en matière de qualité et d'esthétisme.",
-                            outcomes: "Livrée en 17 semaines, cette réalisation remarquable de 318 m² témoigne de notre capacité à gérer des chantiers complexes. L'intégration harmonieuse des piscines, des vastes baies vitrées et des aménagements extérieurs sur-mesure illustre parfaitement notre expertise dans la construction de résidences d'exception."
-                        }
-                    ].map((project, idx) => (
+                    {projectsData.map((project, idx) => (
                         <div key={idx} className="group cursor-pointer" onClick={() => onProjectClick(project)}>
                             <div className="relative overflow-hidden rounded-[2.5rem] mb-6">
                                 <img src={project.img} className="w-full h-80 object-cover transition duration-500 group-hover:scale-105" />
@@ -425,7 +447,7 @@
                                     <i className="fas fa-map-marker-alt mr-2 text-gray-400"></i>{project.loc}
                                 </div>
                             </div>
-                            <h4 className="text-xl font-bold mb-2">{project.title}</h4>
+                            <h4 className="text-xl font-bold mb-2 text-navy">{project.title}</h4>
                             <div className="flex items-center space-x-4 text-gray-400 text-xs">
                                 <span><i className="far fa-clock mr-2"></i>{project.weeks}</span>
                                 <span>•</span>
@@ -554,8 +576,26 @@
 
             const navigate = (v) => { setView(v); setSelectedProject(null); };
 
+            const handleNext = () => {
+                const nextId = (selectedProject.id + 1) % projectsData.length;
+                setSelectedProject(projectsData[nextId]);
+            };
+
+            const handlePrev = () => {
+                const prevId = (selectedProject.id - 1 + projectsData.length) % projectsData.length;
+                setSelectedProject(projectsData[prevId]);
+            };
+
             if (view === 'projectDetail' && selectedProject) {
-                return <ProjectDetail project={selectedProject} onBack={() => setView('home')} onNavigate={navigate} />;
+                return (
+                    <ProjectDetail 
+                        project={selectedProject} 
+                        onBack={() => setView('home')} 
+                        onNavigate={navigate}
+                        onNext={handleNext}
+                        onPrev={handlePrev}
+                    />
+                );
             }
             if (view === 'blogs') {
                 return <BlogsPage onNavigate={navigate} />;

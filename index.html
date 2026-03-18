@@ -378,15 +378,15 @@
         const ProjectsSection = ({ onProjectClick }) => (
             <section className="py-24 bg-white">
                 <div className="max-w-7xl mx-auto px-12 text-center mb-16">
-                    <span className="badge-blue text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-6 inline-block">Projects</span>
-                    <h2 className="text-5xl font-bold mb-4">Projects we're proud of</h2>
-                    <a href="#" className="text-sm font-semibold hover:underline">View All Projects →</a>
+                    <span className="badge-blue text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-6 inline-block">Les projets de Joseph Construction</span>
+                    <h2 className="text-5xl font-bold mb-4">Quelques unes de nos réalisations</h2>
+                    <a href="#" className="text-sm font-semibold hover:underline">Voir toutes nos réalisations →</a>
                 </div>
                 <div className="max-w-7xl mx-auto px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
                     {[
-                        { title: 'Skyline Corporate Tower', loc: 'London, UK', weeks: '5 weeks', sqft: '120000', img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=600' },
-                        { title: 'Harbor View Apartments', loc: 'Tokyo, Japan', weeks: '4 weeks', sqft: '85000', img: 'https://images.unsplash.com/photo-1449156001437-3a1661dc926b?auto=format&fit=crop&q=80&w=600' },
-                        { title: 'Metro Business Hub', loc: 'New York, USA', weeks: '3 weeks', sqft: '95000', img: 'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=600' }
+                        { title: 'Villa Mika - Marseillaise', loc: 'Marseille, FR', weeks: '14 semaines', sqft: '276 m2', img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=600' },
+                        { title: 'Villa Maria - Ollioules', loc: 'Ollioules, FR', weeks: '9 semaines', sqft: '164 m2', img: 'https://images.unsplash.com/photo-1449156001437-3a1661dc926b?auto=format&fit=crop&q=80&w=600' },
+                        { title: 'Villa Sofia - Cannoise', loc: 'Cannes, FR', weeks: '17 semaines', sqft: '318 m2', img: 'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=600' }
                     ].map((project, idx) => (
                         <div key={idx} className="group cursor-pointer" onClick={() => onProjectClick(project)}>
                             <div className="relative overflow-hidden rounded-[2.5rem] mb-6">
@@ -399,7 +399,7 @@
                             <div className="flex items-center space-x-4 text-gray-400 text-xs">
                                 <span><i className="far fa-clock mr-2"></i>{project.weeks}</span>
                                 <span>•</span>
-                                <span><i className="fas fa-expand-arrows-alt mr-2"></i>{project.sqft} sq: ft</span>
+                                <span><i className="fas fa-expand-arrows-alt mr-2"></i>{project.sqft}</span>
                             </div>
                         </div>
                     ))}
